@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generate strong and secure random passwords with our online password generator tool.">
+    <title>Random Password Generator - YourSiteName</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Random Password Generator - My">
+    <meta property="og:description" content="Generate strong and secure random passwords with our online password generator tool.">
+
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Random Password Generator - YourSiteName">
+    <meta property="twitter:description" content="Generate strong and secure random passwords with our online password generator tool.">
+    <meta property="twitter:image" content="https://yoursite.com/twitter-image.jpg"> <!-- Optional: add an image related to your password generator -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+  <body
+    class="h-screen w-screen flex flex-col justify-center items-center gap-8 bg-slate-300"
+  >
+  <div id="modalMain" class="hidden absolute flex justify-center items-center bg-slate-600 bg-opacity-40 h-screen w-screen transition-all duration-[4s] ease-in-out ">
+  <div class="modal bg-slate-50 shadow-2xl border w-[20.25rem] flex flex-col justify-center items-center ">
+    <div class=" text-center font-bold w-full mt-8 mb-3 mx-5 ">Password copied to clipboard</div>
+    <div id="closeBtn" class="close border-[1px] hover:cursor-pointer text-center px-2 py-[2px] h-30 w-30 rounded-full mb-8 border-black ">Close</div>
+</div>
+</div>
+  <div class="flex flex-col items-center gap-3">
+    <h1 class="font-sans font-bold text-5xl">ArmorPass</h1>
+    <h2 class="font-sans font-semibold text-3xl">The random password generator</h1>
+    <h3>Empower Your Security with Our Advanced Password Generator: Tailor-Made Passwords for Maximum Protection</h3>
+</div>
+    <div
+      id="main"
+      class="flex flex-row justify-center items-center bg-white w-[60rem] h-[25rem]"
+    >
+
+
+        <img src="src/secure.png" class="h-[20rem] w-[20rem] mx-[5%]" alt="" srcset="">
+    
+
+      <div class=" flex flex-col justify-center gap-5 mx-[5%]">
+          <div class="flex font-bold border w-100 border-black p-2 items-center justify-between gap-3">
+            <label for="GenPass" class=" ">Password</label>
+            <p id="Genpass" class="text-left p-2 p w-[250px] h-full truncate overflow-hidden place-items-center text-xl">...</p>
+            <button id="copyBTN" class="outline-none border w-[70px] h-[36px] " >Copy</button>
+          </div>
+          <div id="innerHeading" class="font-sans font-bold text-3xl">Do you want to include</div>
+          <p id="warning" class="font-sans text-sm text-red-600"></p>
+          <div class="flex flex-row space-x-14" id="options">   
+          <div class="font-bold flex items-center " >123<input type="checkbox" id="number" class="ml-[11px] h-7 w-7 CheckBox" checked/></div>
+          <div class="font-bold flex items-center " >ABC<input type="checkbox" id="alphaUpper" class="ml-[11px] h-7 w-7 CheckBox" checked/></div>
+          <div class="font-bold flex items-center " >abc<input type="checkbox" id="alphaLower" class="ml-[11px] h-7 w-7 CheckBox" checked/></div>
+          <div class="font-bold flex items-center " >&#%<input type="checkbox" id="chars" class="ml-[11px] h-7 w-7 CheckBox"/></div>
+          
+        </div>
+        <label for="slider">Password Length ( min-1 max-50) : <input id="length" class="font-bold w-8 text-center border-b-2 border-black outline-none"></input></label>
+
+        <div class="slider">
+            <!-- <label for="steps-range-slider-usage" class="">Password Length</label> -->
+            <input type="range" id="range" class="w-full bg-transparent cursor-pointer appearance-none disabled:opacity-50 disabled:pointer-events-none focus:outline-none
+            [&::-webkit-slider-thumb]:w-4
+            [&::-webkit-slider-thumb]:h-4
+            [&::-webkit-slider-thumb]:-mt-0
+            [&::-webkit-slider-thumb]:appearance-none
+            [&::-webkit-slider-thumb]:bg-blue-600
+            [&::-webkit-slider-thumb]:shadow-[0_0_0_4px_rgba(37,99,235,1)]
+            [&::-webkit-slider-thumb]:rounded-full
+            [&::-webkit-slider-thumb]:transition-all
+            [&::-webkit-slider-thumb]:duration-[100ms]
+            [&::-webkit-slider-thumb]:ease-in-out
+            [&::-webkit-slider-thumb]:
+
+            [&::-moz-range-thumb]:w-4
+            [&::-moz-range-thumb]:h-4
+            [&::-moz-range-thumb]:appearance-none
+            [&::-moz-range-thumb]:bg-white
+            [&::-moz-range-thumb]:border-4
+            [&::-moz-range-thumb]:border-blue-600
+            [&::-moz-range-thumb]:rounded-full
+            [&::-moz-range-thumb]:transition-all
+            [&::-moz-range-thumb]:duration-[100ms]
+            [&::-moz-range-thumb]:ease-in-out
+
+            [&::-webkit-slider-runnable-track]:w-full
+            [&::-webkit-slider-runnable-track]:h-4
+            [&::-webkit-slider-runnable-track]:bg-gray-100
+            [&::-webkit-slider-runnable-track]:rounded-full
+            [&::-webkit-slider-runnable-track]:
+
+            [&::-moz-range-track]:w-full
+            [&::-moz-range-track]:h-4
+            [&::-moz-range-track]:bg-gray-100
+            [&::-moz-range-track]:rounded-full" min="1" max="50" step="1">
+        </div>
+        <input
+          type="button"
+          class="border-black border-2 block mx-auto w-full h-11"
+          value="Generate"
+          id="submit"
+        />
+      </div>
+    </div>
+    <script src="./src/script.js"></script>
+  </body>
+</html>
