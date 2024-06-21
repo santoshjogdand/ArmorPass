@@ -50,18 +50,26 @@ passGenerator(alphaUpper, alphaLower, nums, chars, length);
 copyBTN.onclick = () => {
   navigator.clipboard.writeText(GenPass.innerText);
   copyBTN.innerText = "Copied";
-  let modalMain = document.getElementById("modalMain");
-  modalMain.classList.remove("hidden")
-console.log(  modalMain.classList.remove("hidden"))
-
+  setTimeout(() => {
+    copyBTN.innerText = "Copy";
+  }, 3000);
+  // modalMain.classList.remove("hidden")
+};
+GenPass.onclick = () => {
+  navigator.clipboard.writeText(GenPass.innerText);
+  copyBTN.innerText = "Copied";
+  setTimeout(() => {
+    copyBTN.innerText = "Copy";
+  }, 3000);
+  // modalMain.classList.remove("hidden")
 };
 
-closeBtn.onclick = () => {
+// closeBtn.onclick = () => {
 
-    let modalMain = document.getElementById("modalMain");
-    modalMain.classList.add("hidden")
+//     let modalMain = document.getElementById("modalMain");
+//     modalMain.classList.add("hidden")
 
-}
+// }
 
 lengthEle.value = range.value;
 
@@ -83,8 +91,9 @@ submit.addEventListener("click", () => {
 function GeneratePassword(){
     let checkOne = Array.from(Checkboxes).some((checkbox) => checkbox.checked);
     if (!checkOne) {
-      warningMsg.textContent = "Atleast one option should be selected!";
+      warningMsg.classList.remove("hidden")
     } else {
+      warningMsg.classList.add("hidden")
       alphaUpper = alphaUpperCheck.checked;
       alphaLower = alphaLowerCheck.checked;
       nums = checkNum.checked;
